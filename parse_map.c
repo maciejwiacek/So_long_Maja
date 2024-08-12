@@ -6,7 +6,7 @@
 /*   By: mbaj <mbaj@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 22:32:30 by mbaj              #+#    #+#             */
-/*   Updated: 2024/08/01 18:30:48 by mbaj             ###   ########.fr       */
+/*   Updated: 2024/08/12 10:13:07 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ char	**parsing_map(char *map)
 	str = read_map(fd);
 	map_str = ft_split (str, '\n');
 	close(fd);
+	free(str);
 	return (map_str);
 }

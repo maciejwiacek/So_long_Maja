@@ -6,7 +6,7 @@
 /*   By: mbaj <mbaj@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 18:52:49 by mbaj              #+#    #+#             */
-/*   Updated: 2024/08/12 09:41:52 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/08/12 10:09:36 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,16 @@ static void	init_textures(t_game *game)
 			&(game->w), &(game->h));
 }
 
-//void print_map(char **map)
-//{
-//	for (int i = 0; map[i]; i++)
-//		printf("%s\n", map[i]);
-//}
-
 int	key_handeler(int keycode, t_game *game)
 {
 	if (keycode == 'w')
-		move_player(game, 0, -1, 'w');
+		move_player(game, -1, 0, 'w');
 	if (keycode == 's')
-		move_player(game, 0, 1, 's');
+		move_player(game, 1, 0, 's');
 	if (keycode == 'a')
-		move_player(game, -1, 0, 'a');
+		move_player(game, 0, -1, 'a');
 	if (keycode == 'd')
-		move_player(game, 1, 0, 'd');
-	printf("P_POS: %d %d\n", game->p_pos[0], game->p_pos[1]);
+		move_player(game, 0, 1, 'd');
 	ft_printf("Moves :%d\n", game->game_counter);
 	if (keycode == 65307)
 		close_game(game);
@@ -61,6 +54,7 @@ void	*start_game(t_game game)
 	fill_textures(game, 'w');
 	mlx_hook(game.win, 17, 0, close_game, &game);
 	mlx_key_hook(game.win, key_handeler, &game);
+	game.game_counter = 0;
 	mlx_loop(game.mlx);
 	return (NULL);
 }

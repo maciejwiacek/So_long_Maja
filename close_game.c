@@ -6,7 +6,7 @@
 /*   By: mbaj <mbaj@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 18:52:37 by mbaj              #+#    #+#             */
-/*   Updated: 2024/08/12 01:41:07 by mbaj             ###   ########.fr       */
+/*   Updated: 2024/08/12 10:01:33 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int	close_game(t_game *game)
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
 	free_map(game->map);
+	exit(0);
 	return (0);
 }

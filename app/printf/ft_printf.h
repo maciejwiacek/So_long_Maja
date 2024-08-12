@@ -6,7 +6,7 @@
 /*   By: mbaj <mbaj@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 20:55:40 by mbaj              #+#    #+#             */
-/*   Updated: 2024/05/03 16:33:39 by mbaj             ###   ########.fr       */
+/*   Updated: 2024/08/12 10:06:28 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdarg.h>
+# include "../libft/libft.h"
 
 int	ft_printf(const char *format, ...);
 int	small_x_specifier(unsigned int c);
