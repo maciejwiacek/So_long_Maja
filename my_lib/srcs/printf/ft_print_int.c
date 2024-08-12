@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_int.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbaj <mbaj@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 17:23:03 by mbaj              #+#    #+#             */
-/*   Updated: 2024/08/12 10:21:53 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/03/16 12:46:04 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/04/12 09:43:22 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../../includes/libft.h"
 
-int	main(int argc, char **argv)
+int	ft_print_int(int num)
 {
-	t_game	game;
+	char	*converted_num;
+	int		length;
 
-	if (argc == 2)
-	{
-		game.map = parsing_map(argv[1]);
-//		validate_map(map);
-		start_game(game);
-	}
-	else
-		error(NULL, "Invalid Number of Arguments");
-	return (0);
+	converted_num = ft_itoa(num);
+	ft_putstr_fd(converted_num, 1);
+	length = ft_strlen(converted_num);
+	free(converted_num);
+	return (length);
 }

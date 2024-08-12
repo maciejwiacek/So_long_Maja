@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbaj <mbaj@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 17:23:03 by mbaj              #+#    #+#             */
-/*   Updated: 2024/08/12 10:21:53 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/02/29 20:32:31 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/04/12 09:42:17 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../../includes/libft.h"
 
-int	main(int argc, char **argv)
+void	ft_putendl_fd(char *s, int fd)
 {
-	t_game	game;
-
-	if (argc == 2)
+	if (s && fd)
 	{
-		game.map = parsing_map(argv[1]);
-//		validate_map(map);
-		start_game(game);
+		ft_putstr_fd(s, fd);
+		ft_putstr_fd("\n", fd);
 	}
-	else
-		error(NULL, "Invalid Number of Arguments");
-	return (0);
 }

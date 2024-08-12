@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbaj <mbaj@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 17:23:03 by mbaj              #+#    #+#             */
-/*   Updated: 2024/08/12 10:21:53 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/02/26 23:00:26 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/04/12 09:43:05 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../../includes/libft.h"
 
-int	main(int argc, char **argv)
+int	ft_tolower(int c)
 {
-	t_game	game;
-
-	if (argc == 2)
-	{
-		game.map = parsing_map(argv[1]);
-//		validate_map(map);
-		start_game(game);
-	}
-	else
-		error(NULL, "Invalid Number of Arguments");
-	return (0);
+	if (c >= 'A' && c <= 'Z')
+		return (c + ('a' - 'A'));
+	return (c);
 }

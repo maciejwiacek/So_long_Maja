@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbaj <mbaj@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 17:23:03 by mbaj              #+#    #+#             */
-/*   Updated: 2024/08/12 10:21:53 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/03/16 11:39:05 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/04/12 09:43:34 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../../includes/libft.h"
 
-int	main(int argc, char **argv)
+int	ft_print_str(char *str)
 {
-	t_game	game;
-
-	if (argc == 2)
+	if (!str)
 	{
-		game.map = parsing_map(argv[1]);
-//		validate_map(map);
-		start_game(game);
+		ft_putstr_fd("(null)", 1);
+		return (6);
 	}
-	else
-		error(NULL, "Invalid Number of Arguments");
-	return (0);
+	ft_putstr_fd(str, 1);
+	return (ft_strlen(str));
 }

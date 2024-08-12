@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbaj <mbaj@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 17:23:03 by mbaj              #+#    #+#             */
-/*   Updated: 2024/08/12 10:21:53 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/02/26 17:27:54 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/04/12 09:41:35 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../../includes/libft.h"
 
-int	main(int argc, char **argv)
+int	ft_isdigit(int c)
 {
-	t_game	game;
-
-	if (argc == 2)
+	if (c >= '0' && c <= '9')
 	{
-		game.map = parsing_map(argv[1]);
-//		validate_map(map);
-		start_game(game);
+		return (1);
 	}
 	else
-		error(NULL, "Invalid Number of Arguments");
-	return (0);
+	{
+		return (0);
+	}
 }

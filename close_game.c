@@ -6,11 +6,20 @@
 /*   By: mbaj <mbaj@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 18:52:37 by mbaj              #+#    #+#             */
-/*   Updated: 2024/08/12 10:01:33 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/08/12 10:52:57 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+//static void print_map(char **map)
+//{
+//	printf("-----------------------\n");
+//	printf("||||||||| MAP |||||||||\n");
+//	for (int i = 0; map[i]; i++)
+//		printf("%s\n", map[i]);
+//	printf("-----------------------\n");
+//}
 
 int	close_game(t_game *game)
 {
@@ -24,5 +33,4 @@ int	close_game(t_game *game)
 	free(game->mlx);
 	free_map(game->map);
 	exit(0);
-	return (0);
 }

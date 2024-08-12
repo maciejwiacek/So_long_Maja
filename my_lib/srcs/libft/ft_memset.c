@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbaj <mbaj@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 17:23:03 by mbaj              #+#    #+#             */
-/*   Updated: 2024/08/12 10:21:53 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/02/26 22:29:40 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/04/12 09:42:13 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../../includes/libft.h"
 
-int	main(int argc, char **argv)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	t_game	game;
+	char	*tmp;
+	int		i;
 
-	if (argc == 2)
+	tmp = b;
+	i = 0;
+	while (len > 0)
 	{
-		game.map = parsing_map(argv[1]);
-//		validate_map(map);
-		start_game(game);
+		tmp[i] = c;
+		i++;
+		len--;
 	}
-	else
-		error(NULL, "Invalid Number of Arguments");
-	return (0);
+	return (tmp);
 }

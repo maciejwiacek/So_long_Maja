@@ -6,36 +6,51 @@
 /*   By: mbaj <mbaj@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 22:32:30 by mbaj              #+#    #+#             */
-/*   Updated: 2024/08/12 10:13:07 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/08/12 10:32:16 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static char	*read_map(int fd)
+static char *strjoin_free(char *s1, char *s2)
 {
-	char	*str;
-	char	*line;
-	char	*tmp;
+	char *result;
 
-	str = get_next_line(fd);
-	if (!str)
+	if (!s1)
 	{
-		perror("Map file is empty");
-		return (NULL);
-	}	
-	line = get_next_line(fd);
-	while (line)
-	{
-		tmp = str;
-		str = ft_strjoin(tmp, line);
-		free(line);
-		free(tmp);
-		line = get_next_line(fd);
+		result = ft_strdup(s2);
+		free(s2);
+		return (result);
 	}
-	return (str);
+	if (!s2)
+		return (s1);
+	result = ft_strjoin(s1, s2);
+	free(s1);
+	free(s2);
+	return (result);
 }
 
+static char *create_str(int fd)
+{
+	char *line;
+	char *str;
+
+	line = get_next_line(fd);
+	if (!line)
+	{
+		perror("Map file is empty!");
+		exit(1);
+	}
+	str = NULL;
+	str = ft_strdup("");
+	while (line)
+	{
+		str = strjoin_free(str, line);
+		line = get_next_line(fd);
+	}
+	free(line);
+	return (str);
+}
 char	**parsing_map(char *map)
 {
 	int	fd;
@@ -49,9 +64,9 @@ char	**parsing_map(char *map)
 		perror("Error opening file");
 		return (NULL);
 	}
-	str = read_map(fd);
-	map_str = ft_split (str, '\n');
-	close(fd);
+	str = create_str(fd);
+	map_str = ft_split(str, '\n');
 	free(str);
+	close(fd);
 	return (map_str);
 }

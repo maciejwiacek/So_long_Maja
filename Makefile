@@ -36,17 +36,18 @@ clone:
 	fi
 
 $(NAME): $(OBJS)
-	make -C app
+	make -C my_lib
 	make -C minilibx-linux
-	$(CC) $(OBJS) app/libftprintf.a -L$(MLX) -lmlx_Linux -lX11 -lXext -lm -o $(NAME)
+	$(CC) $(OBJS) my_lib/my_lib.a -L$(MLX) -lmlx_Linux -lX11 -lXext -lm -o $(NAME)
 
 clean:
-	make clean -C app
-	make clean -C minilibx-linux
+	make clean -C my_lib
 	$(RM) $(OBJS)
+	make clean -C minilibx-linux
 
 fclean:	clean
 	$(RM) $(NAME)
+	rm -rf my_lib/my_lib.a
 	rm -rf minilibx-linux
 
 re: fclean all

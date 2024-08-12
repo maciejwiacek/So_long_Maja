@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbaj <mbaj@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mwiacek <mwiacek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 17:23:03 by mbaj              #+#    #+#             */
-/*   Updated: 2024/08/12 10:21:53 by mwiacek          ###   ########.fr       */
+/*   Created: 2024/03/17 23:04:07 by mwiacek           #+#    #+#             */
+/*   Updated: 2024/04/12 09:38:13 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
-int	main(int argc, char **argv)
-{
-	t_game	game;
+# include <unistd.h>
+# include <stdlib.h>
 
-	if (argc == 2)
-	{
-		game.map = parsing_map(argv[1]);
-//		validate_map(map);
-		start_game(game);
-	}
-	else
-		error(NULL, "Invalid Number of Arguments");
-	return (0);
-}
+char		*get_next_line(int fd);
+
+#endif

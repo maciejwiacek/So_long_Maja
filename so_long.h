@@ -6,16 +6,16 @@
 /*   By: mwiacek <mwiacek@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 08:55:45 by mwiacek           #+#    #+#             */
-/*   Updated: 2024/08/12 08:55:45 by mwiacek          ###   ########.fr       */
+/*   Updated: 2024/08/12 11:05:36 by mwiacek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "app/get_next_line/get_next_line.h"
-# include "app/libft/libft.h"
-# include "app/printf/ft_printf.h"
+# include "my_lib/includes/get_next_line.h"
+# include "my_lib/includes/libft.h"
+# include "my_lib/includes/printf.h"
 # include "minilibx-linux/mlx.h"
 # include <errno.h>
 # include <fcntl.h>
